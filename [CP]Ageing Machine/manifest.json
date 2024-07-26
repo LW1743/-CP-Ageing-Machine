@@ -1,0 +1,11 @@
+{
+    "Name": "Ageing Machine",
+    "Author": "Lukas Wiener",
+    "Version": "1.1.0",
+    "Description": "It can age wine etc. in minutes.",
+    "UniqueID": "Lukas.CPAgeingMachine",
+    "UpdateKeys": ["Nexus:25708"], 
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}

@@ -1,0 +1,265 @@
+{
+    "Format": "2.3.0",
+    "Changes": [
+        {
+            "Action": "EditData",
+            "Target": "Data/BigCraftables",
+            "Entries": {
+                "{{ModId}}_AgeingMachine": {
+                "Name": "AgeingMachine",
+                "DisplayName": "Ageing Machine",
+                "Description": "Can age wine etc. in minutes. Does not work with cheese! (New Version)",
+                "Texture": "Mods/{{ModId}}/AgeingMachine",
+                "SpriteIndex": 0
+
+            }
+        }
+        },
+
+        {
+            "Action": "Load",
+            "Target": "Mods/{{ModId}}/AgeingMachine",
+            "FromFile": "assets/{{TargetWithoutPath}}.png" 
+        },
+
+        {
+            "Action": "EditData",
+            "Target": "Data/CraftingRecipes",
+            "Entries": {
+                "AgeingMachine": "787 1 334 3 725 1/Home/{{ModId}}_AgeingMachine 1/true/"
+            }
+        },
+
+        {
+            "Action": "EditData",
+            "Target": "Data/Machines",
+            "Entries": {
+                "(BC){{ModId}}_AgeingMachine": {
+
+
+                    "OutputRules": [
+
+                      {
+                        "Id": "Wine",
+                        "Triggers": [
+                          {
+                            "Id": "NoQualityWinePlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)348",
+                            "RequiredCount": 1,
+                            "RequiredTags": [
+                              "quality_none"
+                            ],
+                            "Condition": null
+                          },
+                          {
+                            "Id": "SilverQualityWinePlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)348",
+                            "RequiredCount": 1,
+                            "RequiredTags": [
+                              "quality_silver"
+                            ],
+                            "Condition": null
+                          }
+                        ],
+                        "OutputItem": [
+                          {
+                            "ItemId": "FLAVORED_ITEM Wine DROP_IN_PRESERVE",
+                            "Quality": 2
+                          }
+                        ],
+                        "MinutesUntilReady": 180
+                      },
+
+                      {
+                        "Id": "Mead",
+                        "Triggers": [
+                          {
+                            "Id": "NoQualityMeadPlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)459",
+                            "RequiredCount": 1,
+                            "RequiredTags":[
+                              "quality_none"
+                            ]
+                          },
+                          {
+                            "Id": "SilverQualityMeadPlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)459",
+                            "RequiredCount": 1,
+                            "RequiredTags":[
+                              "quality_silver"
+                            ]
+                          }
+                        ],
+                        "OutputItem": [
+                          {
+                            "ItemId": "(O)459",
+                            "Quality": 2
+                          }
+                        ],
+                        "MinutesUntilReady": 180
+                      },
+
+                      {
+                        "Id": "Beer",
+                        "Triggers": [
+                          {
+                            "Id": "NoQualityBeerPlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)346",
+                            "RequiredCount": 1,
+                            "RequiredTags":[
+                              "quality_none"
+                            ]
+                          },
+                          {
+                            "Id": "SilverQualityBeerPlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)346",
+                            "RequiredCount": 1,
+                            "RequiredTags":[
+                              "quality_silver"
+                            ]
+                          }
+                        ],
+                        "OutputItem": [
+                          {
+                            "ItemId": "(O)346",
+                            "Quality": 2
+                          }
+                        ],
+                        "MinutesUntilReady": 180
+                      },
+                      
+                      {
+                        "Id": "PaleAle",
+                        "Triggers": [
+                          {
+                            "Id": "NoQualityPaleAlePlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)303",
+                            "RequiredCount": 1,
+                            "RequiredTags":[
+                              "quality_none"
+                            ]
+                          },
+                          {
+                            "Id": "SilverQualityPaleAlePlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "(O)303",
+                            "RequiredCount": 1,
+                            "RequiredTags":[
+                              "quality_silver"
+                            ]
+                          }
+                        ],
+                        "OutputItem": [
+                          {
+                            "ItemId": "(O)303",
+                            "Quality": 2
+                          }
+                        ],
+                        "MinutesUntilReady": 180
+                      },
+
+                      {
+                        "Id": "OldAgeingMachine",
+                        "Triggers": [
+                          {
+                            "Id": "NoQualityPaleAlePlacedInMachine",
+                            "Trigger": "ItemPlacedInMachine",
+                            "RequiredItemId": "Lukas.JAAgeingMachine_Ageing_Machine",
+                            "RequiredCount": 1
+                          }
+                        ],
+                        "OutputItem": [
+                          {
+                            "ItemId": "{{ModId}}_AgeingMachine"
+                          }
+                        ],
+                        "MinutesUntilReady": 0
+                      }
+
+                      ],
+                      
+                      "LoadEffects":[
+                        {
+                          "Id": "Default",
+                          "Condition": null,
+                          "Sounds": [
+                            {
+                              "Id": "Ship",
+                              "Delay": 0
+                            },
+                            {
+                              "Id": "bubbles",
+                              "Delay": 0
+                            }
+                          ],
+                          "Interval": 100,
+                          "ShakeDuration": -1,
+                          "TemporarySprites": [
+                          {
+                          "Id": "Default",
+                          "Texture": "TileSheets\\animations",
+                          "SourceRect": {
+                          "X": 256,
+                          "Y": 1856,
+                          "Width": 64,
+                          "Height": 128
+                          },
+                          "Interval": 80.0,
+                          "Frames": 6,
+                          "Loops": 999999,
+                          "PositionOffset": "0, -32",
+                          "Flicker": false,
+                          "Flip": false,
+                          "SortOffset": 0.0,
+                          "AlphaFade": 0.005,
+                          "Scale": 0.25,
+                          "ScaleChange": 0.0,
+                          "Rotation": 0.0,
+                          "RotationChange": 0.0,
+                          "Color": "#bfbf00bf"
+                          }
+                          ]
+                        }
+                      ],
+                      "LightWhileWorking": {
+                        "Radius": 0.5,
+                        "Color": "#222222"
+                      }
+                       
+                }
+            }
+        },
+
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/Farm",
+            "Entries": {
+              "2570800001/f Demetrius 2000/t 600 1900": "SettlingIn/64 15/farmer 64 16 2 Demetrius 64 18 0/addQuest 2570800002/skippable/pause 1500/speak Demetrius \"Hi, @! I recently made a discovery, enabling me to create a new machine you might find interesting. It's called the Ageing Machine.\"/pause 500/speak Demetrius \"It is based on a scientific mechanism known as ultrasonic ageing. If you put wood chips together with an alcoholic drink into a glass and ...\"/pause 500/speak Demetrius \"Well, to keep it short, this machine can turn any alcoholic beverage into gold quality within a short period of time.\"/pause 500/speak Demetrius \"But there's a twist. I need your help. To finish building the Ageing Machine I need you to get me a battery!\"/pause 500/speak Demetrius \"If you have it, just come by so we can finish building the machine together!\"/pause 500/end"
+            }
+        },
+
+        {
+            "Action": "EditData",
+            "Target": "Data/Quests",
+            "Entries": {
+              "2570800002": "Basic/The Ageing Machine/Demetrius came to you and told you about a new machine he has been working on. He called it the Ageing Machine. But to finish building the machine he needs your help!/Enter Demetrius house with a battery!/-1/-1/0/-1/false"
+            }
+        },
+
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/ScienceHouse",
+            "Entries": {
+              "2570800006/c 1/e 2570800001/i 787/t 900 1900": "distantBanjo/17 20/farmer 15 20 1 Demetrius 22 20 1/addItem {{ModId}}_AgeingMachine/addCraftingRecipe {{ModId}}_AgeingMachine/removeItem 787/removeQuest 2570800002/skippable/move farmer 5 0 1/pause 800/emote Demetrius 16 true/pause 500/move Demetrius -1 0 3/pause 500/speak Demetrius \"You brought me the battery I asked for. That's perfect!$1\"/pause 500/move Demetrius 1 0 1/pause 500/speak Demetrius \"Let's see if it works!$3\"/pause 500/playSound axchop/pause 500/playSound axchop/pause 500/playSound axchop/pause 800/move Demetrius -1 0 3/pause 500/speak Demetrius \"Here you can have this one!\"/pause 500/itemAboveHead {{ModId}}_AgeingMachine/playSound getNewSpecialItem/pause 3000/move farmer 0 0 1/pause 500/emote farmer 32 true/pause 1500/speak Demetrius \"You can also make one yourself with one battery, three copper bars and one oak resin!\"/pause 500/move Demetrius 1 0 1/pause 800/end"
+            }
+        }
+
+    ]
+}
